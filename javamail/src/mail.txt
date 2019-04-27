@@ -1,0 +1,44 @@
+1.电子邮箱的概念：用户申请的一个邮件账号，邮件服务器为该账号提供一定空间
+2.邮件服务器：
+    硬件：计算机，配置比普通电脑高
+    软件：tomcat等等
+3.邮件收发的基本协议
+    smtp(邮件发送的协议)：简单邮件传送协议。
+                          属于TCP/IP协议族，它帮助每台计算机在发送或中转信件时找到下一个目的地
+                          smtp服务器时遵循smtp协议的发送邮件服务器
+                          smtp协议：默认端口号：25
+    pop3（邮件结束的协议）邮局协议版本3
+                          使用客户端远程管理在服务器上面的邮件
+                          通常接受邮件的服务器为pop3服务器，默认端口号：110
+4.邮件收发过程
+    准备两个邮箱账号：一个发，一个收
+    发：客户端软件(本系统为163服务器)
+    收：
+
+5.邮件服务器的配置
+    可以在本机上面搭建邮件服务器：模拟本地的邮件服务器的发送和接受
+
+
+6.邮件服务器容易错的地方（POM中的宝记得导入完整）
+The JavaMail API is available as an optional package for use with Java SE platform and is also included in the Java EE platform.
+99% that you run your tests in SE environment which means what you have to bother about adding it manually to your classpath when running tests.
+
+
+
+翻译过来就是：JavaMail API在Java SE 平台是可选的，在java EE 平台是自动包含的，你很有可能是Java SE的环境，因此，需要手动导包。
+
+<dependency>
+<groupId>javax.mail</groupId>
+<artifactId>javax.mail-api</artifactId>
+<version>1.5.3</version>
+</dependency>
+<dependency>
+<groupId>com.sun.mail</groupId>
+<artifactId>javax.mail</artifactId>
+<version>1.5.3</version>
+</dependency>
+
+
+
+这两个包一个都不能少，特别是第二个，往往都是这个包没有导入。
+
